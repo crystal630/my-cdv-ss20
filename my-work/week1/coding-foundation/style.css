@@ -1,0 +1,14 @@
+body{
+  background-color: black
+}
+#num{
+  margin-top:200px;
+  margin-left:400px;
+}
+#rect{
+  background-color: white;
+  width:20px;
+  height:20px;
+  margin:10px
+
+}
