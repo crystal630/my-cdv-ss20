@@ -1,0 +1,11 @@
+
+.bar{
+  height:100px;
+  width:200px;
+  background-color: lightyellow;
+  font-style:oblique;
+  font-size:30px;
+  text-align: center;
+  margin:10px
+
+}

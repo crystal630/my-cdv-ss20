@@ -1,6 +1,6 @@
 ##Crystal's reading response
 
-1.Intro and Chapter 2:
+1.Intro and Chapter 2: Why does Bowker say "'Raw data is both and oxymoron and a bad idea'" ? (pp. 663)
 
 For me, it is easier to understand the quotation from this sentence: "to the contrary, data should be cooked with care". Combining the rest part of this chapter, I think the key to evaluate big data is how people regulate or use it and their purpose of using it. Especially nowadays big data are becoming more and more accessible which means there will be more uncertainty and potential issues on the privacy, safety and so on. Therefore, it is necessary to utilize data properly. Otherwise, if the raw data isn't used correctly, it might be the potential danger to us.
 
@@ -16,6 +16,6 @@ Firstly, Twitter is a social media, which means the source of the data is probab
 
 I think whether the data is public and free to use depends on the contributor's or the owners' will. Logging in or not is not the most important reason. Also, the related companies should get the permission about the access of data from the users directly.
 
-5. Section 6:
+5. Section 6: No prompt
 
 This section mainly discussed the inequality on the access of data and the effect on researches. Companies with a huge amount of users could easily get the data and build their own database and they can use this data set to improve their own technology. For example, Google can use its users data to support its AI development even though I am not sure whether it is proper to do so. In the long run, large companies like Google will grow increasingly faster and cause a monopoly. Other poor companies cannot afford or unable to get the access of the data and the gap will be wider and wider.
