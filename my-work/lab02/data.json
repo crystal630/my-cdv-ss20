@@ -1,0 +1,62 @@
+[
+    {
+        "date": "20/02/24",
+        "time": "1",
+        "tops": "DarkSeaGreen",
+        "pants": "SteelBlue",
+        "feet": "Pink",
+        "sharedColor": ["green","green","green","blue","blue","blue","white","white","black","pink"]
+    },
+    {
+        "date": "20/02/25",
+        "time": "2",
+        "tops": "SandyBrown",
+        "pants": "Black",
+        "feet": "Pink",
+        "sharedColor": ["yellow","yellow","yellow","yellow","black","black","black","black","black","pink"]
+    },
+    {
+        "date": "20/02/26",
+        "time": "3",
+        "tops": "Black",
+        "pants": "Black",
+        "feet": "Pink",
+        "sharedColor": ["black","black","black","black","black","red","red","white","white","pink"]
+    },
+    {
+        "date": "20/02/27",
+        "time": "4",
+        "tops": "Black",
+        "pants": "SteelBlue",
+        "coat": "Black",
+        "feet": "Pink",
+        "sharedColor": ["black","black","black","black","black","blue","blue","blue","red","pink"]
+    },
+    {
+        "date": "20/02/28",
+        "time": "5",
+        "tops": "SandyBrown",
+        "pants": "Black",
+        "coat": "Black",
+        "feet": "Black",
+        "sharedColor": ["black","black","black","black","black","black","black","black","black","black","yellow","yellow","yellow","yellow","yellow","yellow","white","white","red","red"]
+    },
+    {
+        "date": "20/02/29",
+        "time": "6",
+        "tops": "DarkSeaGreen",
+        "pants": "Black",
+        "coat": "DarkSeaGreen",
+        "feet": "Black",
+        "sharedColor": ["black","black","black","black","black","black","black","black","green","green","green","green","green","green","dark green","dark green","white","white","grey","grey"]
+    },
+    {
+        "date": "20/03/01",
+        "time": "7",
+        "tops": "DarkSeaGreen",
+        "pants": "SteelBlue",
+        "coat": "Black",
+        "feet": "Black",
+        "sharedColor": ["green,green,green,blue,blue,blue,white,white,black,black"]
+    }
+]

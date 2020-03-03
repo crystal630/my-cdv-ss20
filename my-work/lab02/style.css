@@ -1,0 +1,16 @@
+body{
+  width, height: 100%;
+  margin: 0;
+  background-image:url('bg.png');
+}
+#viz-container{
+background-color: lightblue;
+}
+#txt{
+  font-size:24px;
+}
+#table{
+  font-size:25px;
+  padding-top:20px;
+
+}
