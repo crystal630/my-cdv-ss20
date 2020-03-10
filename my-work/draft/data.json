@@ -39,7 +39,7 @@
         "pants": "Black",
         "coat": "Black",
         "feet": "Black",
-        "sharedColor": ["black","black","black","black","black","black","black","black","black","black","yellow","yellow","yellow","yellow","yellow","yellow","white","white","red","red"]
+        "sharedColor": ["black","black","black","black","black","yellow","yellow","yellow","white","red"]
     },
     {
         "date": "20/02/29",
@@ -48,7 +48,7 @@
         "pants": "Black",
         "coat": "DarkSeaGreen",
         "feet": "Black",
-        "sharedColor": ["black","black","black","black","black","black","black","black","green","green","green","green","green","green","dark green","dark green","white","white","grey","grey"]
+        "sharedColor": ["black","black","black","black","green","green","green","dark green","white","grey"]
     },
     {
         "date": "20/03/01",
