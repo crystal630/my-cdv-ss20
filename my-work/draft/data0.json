@@ -1,0 +1,15 @@
+[
+
+    {
+        "date": "02/29",
+        "time": "6",
+        "tops": "DarkSeaGreen",
+        "sec": "White",
+
+        "pants": "Black",
+        "coat": "DarkGreen",
+        "feet": "Black",
+        "sharedColor": ["black","black","black","black","black","black","black","black","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkGreen","DarkGreen","white","white","grey","grey"]
+    }
+
+]

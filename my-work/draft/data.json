@@ -1,36 +1,36 @@
 [
     {
-        "date": "20/02/24",
+        "date": "02/24",
         "time": "1",
         "tops": "DarkSeaGreen",
         "sec": "White",
         "pants": "SteelBlue",
-        "coat": "lightBlue",
+        "coat": "MistyRose",
         "feet": "Pink",
-        "sharedColor": ["DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","blue","blue","blue","white","white","black","pink"]
+        "sharedColor": ["DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","SteelBlue","SteelBlue","SteelBlue","white","white","black","pink"]
     },
     {
-        "date": "20/02/25",
+        "date": "02/25",
         "time": "2",
         "tops": "SandyBrown",
         "sec": "PeachPuff",
         "pants": "Black",
-        "coat": "lightBlue",
+        "coat": "MistyRose",
         "feet": "Pink",
-        "sharedColor": ["SandyBrown","SandyBrown","SandyBrown","PeachPuff","black","black","black","black","black","pink"]
+        "sharedColor": ["black","black","black","black","black","SandyBrown","SandyBrown","SandyBrown","PeachPuff","pink"]
     },
     {
-        "date": "20/02/26",
+        "date": "02/26",
         "time": "3",
         "tops": "Black",
         "sec": "FireBrick",
         "pants": "Black",
-        "coat": "lightBlue",
+        "coat": "MistyRose",
         "feet": "Pink",
         "sharedColor": ["black","black","black","black","black","FireBrick","FireBrick","white","white","pink"]
     },
     {
-        "date": "20/02/27",
+        "date": "02/27",
         "time": "4",
         "tops": "Black",
         "sec": "FireBrick",
@@ -38,10 +38,10 @@
         "coat": "Black",
         "feet": "Pink",
         "status":"out",
-        "sharedColor": ["black","black","black","black","black","blue","blue","blue","FireBrick","pink"]
+        "sharedColor": ["black","black","black","black","black","SteelBlue","SteelBlue","SteelBlue","FireBrick","pink"]
     },
     {
-        "date": "20/02/28",
+        "date": "02/28",
         "time": "5",
         "tops": "SandyBrown",
         "sec": "PeachPuff",
@@ -51,7 +51,7 @@
         "sharedColor": ["black","black","black","black","black","black","black","black","black","black","SandyBrown","SandyBrown","SandyBrown","SandyBrown","PeachPuff","PeachPuff","white","white","FireBrick","red"]
     },
     {
-        "date": "20/02/29",
+        "date": "02/29",
         "time": "6",
         "tops": "DarkSeaGreen",
         "sec": "White",
@@ -59,16 +59,16 @@
         "pants": "Black",
         "coat": "DarkGreen",
         "feet": "Black",
-        "sharedColor": ["black","black","black","black","black","black","black","black","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","dark green","dark green","white","white","grey","grey"]
+        "sharedColor": ["black","black","black","black","black","black","black","black","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkGreen","DarkGreen","white","white","grey","grey"]
     },
     {
-        "date": "20/03/01",
+        "date": "03/01",
         "time": "7",
         "tops": "DarkSeaGreen",
         "sec": "White",
         "pants": "SteelBlue",
         "coat": "Black",
         "feet": "Black",
-        "sharedColor": ["green,green,green,blue,blue,blue,white,white,black,black"]
+        "sharedColor": ["DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","SteelBlue","SteelBlue","SteelBlue","white","white","black","black"]
     }
 ]
