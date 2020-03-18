@@ -1,5 +1,5 @@
-let w=1600;
-let h=870;
+let w=2400;
+let h=800;
 function getColors(d,i){
 
   return d.sharedColor;
@@ -8,8 +8,8 @@ function share(datapoint){
   a=datapoint.sharedColor;
   return a;
 }
-function cordinateX(datapoint){
-  x=datapoint.time*100-110;
+function cordinateX(d,i){
+  x=(i+1)*170-160;
  return 'translate('+x+','+'0)'
 }
 function newX(datapoint){
@@ -46,7 +46,7 @@ function date(datapoint){
 //var allGroup = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"]
 
 
-let wScale=d3.scaleLinear().domain([0,w]).range([0,725]);
+let wScale=d3.scaleLinear().domain([0,w]).range([0,1200]);
 let hScale=d3.scaleLinear().domain([0,h]).range([0,400]);
 function gotData(incomingData){
   let viz = d3.select("#container")
@@ -62,7 +62,7 @@ function gotData(incomingData){
       .append("text")
       .text(date)
       .attr("x",55)
-      .attr("y",40)
+      .attr("y",90)
       .attr("font-family","fantasy")
       .attr("font-size",20)
       .attr("fill","black");
@@ -70,7 +70,7 @@ function gotData(incomingData){
         .append("rect")
         .attr("class", "tops")
         .attr("x",55)
-        .attr("y",80)
+        .attr("y",80+100)
         .attr("width",wScale(130))
         .attr("height",hScale(130))
         .attr("fill",topss)
@@ -80,7 +80,7 @@ function gotData(incomingData){
       datagroup
         .append("rect")
         .attr("x",35)
-        .attr("y",80)
+        .attr("y",80+100)
         .attr("width",wScale(20))
         .attr("height",hScale(20))
         .attr("fill","white")
@@ -89,28 +89,28 @@ function gotData(incomingData){
       shoes
         .append("rect")
         .attr("x",45)
-        .attr("y",360)
+        .attr("y",360+140)
         .attr("width",wScale(70))
         .attr("height",hScale(30))
         .style("fill",feet);
       shoes
         .append("rect")
         .attr("x",95)
-        .attr("y",360)
+        .attr("y",360+140)
         .attr("width",wScale(70))
         .attr("height",hScale(30))
         .style("fill",feet);
       shoes
       .append("rect")
         .attr("x",63)
-        .attr("y",350)
+        .attr("y",350+140)
         .attr("width",wScale(30))
         .attr("height",hScale(30))
         .style("fill",feet);
       shoes
         .append("rect")
         .attr("x",95)
-        .attr("y",350)
+        .attr("y",350+140)
         .attr("width",wScale(30))
         .attr("height",hScale(30))
         .style("fill",feet)
@@ -120,7 +120,7 @@ function gotData(incomingData){
         .append("rect")
         .attr("class","coat1")
         .attr("x",60)
-        .attr("y",410)
+        .attr("y",410+190)
         .attr("width",wScale(130))
         .attr("height",hScale(100))
         .style("fill",coat);
@@ -129,7 +129,7 @@ function gotData(incomingData){
         .append("rect")
         .attr("class","coat2")
         .attr("x",72)
-        .attr("y",400)
+        .attr("y",400+190)
         .attr("width",wScale(80))
         .attr("height",hScale(130))
         .style("fill",coat)
@@ -142,7 +142,7 @@ function gotData(incomingData){
         return d.sharedColor;
       }
       function positionY(d,i){
-         return 500-(i*25)
+         return 550-(i*25)
       }
       function sharedC(d,i){
         return d;
@@ -151,7 +151,7 @@ function gotData(incomingData){
     bar.selectAll(".bar").data(getColors).enter()
          .append('rect')
          .attr("class","bar")
-         .attr("x",10)
+         .attr("x",500)
          .attr("y",positionY)
          .attr("width",40)
          .attr("height",20)
@@ -161,8 +161,8 @@ function gotData(incomingData){
          bar
          .append("text")
          .text(date)
-         .attr("x",3)
-         .attr("y",580)
+         .attr("x",500)
+         .attr("y",680)
          .attr("font-family","fantasy")
          .attr("font-size",20)
          .attr("fill","black");
@@ -174,7 +174,7 @@ function gotData(incomingData){
     .attr("class","pants")
 
 
-    .attr("points","68,200,48,320,72,320,84,230,96,320,120,320,104,200")
+    .attr("points","68,320,48,440,72,440,84,350,96,440,120,440,104,320")
     .attr("fill",pant)//cant enter 2 datasets the same time
 
     datagroup.attr("transform", cordinateX);

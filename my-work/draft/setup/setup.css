@@ -1,3 +1,21 @@
+/* dont make changes to this file */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body{
   margin:0;
   background-color: lightgrey;
@@ -6,7 +24,7 @@ body{
 .page{
   outline: 1px grey solid;
   margin:auto;
-  height: 600px;
+  height: 800px;
   overflow: hidden;
   position: relative;
   background-color: white;
@@ -15,7 +33,7 @@ body{
   width: 1200px;
 }
 .middle-spread-container{
-  width: 1450px;
+  width: 2400px;
 }
 .middle-spread-container:before {
   content: '';
