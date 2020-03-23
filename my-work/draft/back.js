@@ -99,7 +99,7 @@ let example=back.selectAll(".example1").data(incomingData).enter()
     .attr("stroke", "black");
     example
     .append('line')
-    .attr('x1',152)
+    .attr('x1',130)
     .attr('x2',195)
     .attr('y1',313)
     .attr('y2',313)
@@ -125,7 +125,7 @@ let example=back.selectAll(".example1").data(incomingData).enter()
 
   example
   .append("text")
-  .text('At Home')
+  .text('Outdoors')
   .attr("x",285)
   .attr("y",140+140)
   .attr("font-family","fantasy")
@@ -234,7 +234,7 @@ let example=back.selectAll(".example1").data(incomingData).enter()
            .attr("height",20)
            .attr("fill",sharedC)
            ;
-           
+
            bar
            .append("text")
            .text("Color GREY occupies 10 percent of this day's colors")
