@@ -40,6 +40,10 @@ function coat(datapoint){
 function date(datapoint){
   return datapoint.date;
 }
+function status(datapoint){
+  console.log(datapoint.status)
+  return datapoint.status;
+}
 
 
 
@@ -80,15 +84,15 @@ function gotData(incomingData){
       datagroup
         .append("rect")
         .attr("x",35)
-        .attr("y",80+100)
+        .attr("y",580)
         .attr("width",wScale(20))
         .attr("height",hScale(20))
-        .attr("fill","white")
+        .attr("fill",status)
       ;
       let shoes=datagroup.append("g").attr("class","shoes")
       shoes
         .append("rect")
-        .attr("x",45)
+        .attr("x",43)
         .attr("y",360+140)
         .attr("width",wScale(70))
         .attr("height",hScale(30))

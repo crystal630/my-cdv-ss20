@@ -6,6 +6,7 @@
         "sec": "White",
         "pants": "SteelBlue",
         "coat": "MistyRose",
+        "status":"MistyRose",
         "feet": "Pink",
         "sharedColor": ["DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","SteelBlue","SteelBlue","SteelBlue","white","white","black","pink"]
     },
@@ -16,6 +17,7 @@
         "sec": "PeachPuff",
         "pants": "Black",
         "coat": "MistyRose",
+        "status":"MistyRose",
         "feet": "Pink",
         "sharedColor": ["black","black","black","black","black","SandyBrown","SandyBrown","SandyBrown","PeachPuff","pink"]
     },
@@ -26,6 +28,7 @@
         "sec": "FireBrick",
         "pants": "Black",
         "coat": "MistyRose",
+        "status":"MistyRose",
         "feet": "Pink",
         "sharedColor": ["black","black","black","black","black","FireBrick","FireBrick","white","white","pink"]
     },
@@ -36,8 +39,8 @@
         "sec": "FireBrick",
         "pants": "SteelBlue",
         "coat": "Black",
+        "status":"White",
         "feet": "Pink",
-        "status":"out",
         "sharedColor": ["black","black","black","black","black","SteelBlue","SteelBlue","SteelBlue","FireBrick","pink"]
     },
     {
@@ -47,6 +50,7 @@
         "sec": "PeachPuff",
         "pants": "Black",
         "coat": "Black",
+        "status":"White",
         "feet": "Black",
         "sharedColor": ["black","black","black","black","black","black","black","black","black","black","SandyBrown","SandyBrown","SandyBrown","SandyBrown","PeachPuff","PeachPuff","white","white","FireBrick","red"]
     },
@@ -58,6 +62,7 @@
 
         "pants": "Black",
         "coat": "DarkGreen",
+       "status":"White",
         "feet": "Black",
         "sharedColor": ["black","black","black","black","black","black","black","black","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","DarkGreen","DarkGreen","white","white","grey","grey"]
     },
@@ -68,6 +73,7 @@
         "sec": "White",
         "pants": "SteelBlue",
         "coat": "Black",
+       "status":"White",
         "feet": "Black",
         "sharedColor": ["DarkSeaGreen","DarkSeaGreen","DarkSeaGreen","SteelBlue","SteelBlue","SteelBlue","white","white","black","black"]
     }
