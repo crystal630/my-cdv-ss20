@@ -1,0 +1,10 @@
+# Crystal's assignment for week 07
+## *Technology adoption*
+link:https://ourworldindata.org/technology-adoption
+This project mainly tells about how people all over the world adopt to various new technologies, including internet, communication device and vehicles. It also reflects the speed and range of the adoption. The more developed the countries are, the faster and wider the adoption is. I was surprised on the share of population with internet access part. The dynamic data visualization shows the magnificent development of internet over the world and the gap among countries are huge. If I visualize this type of data, I would first narrow the dataset to the population with internet access in about 30 countries from 2007 to 2017. And then visualize it in an interactive and dynamic way(like the exercise in lab06). The viewers can use mouse to view the data of a certain country or a certain year.
+## *Slogan Dataset*
+link:https://www.kaggle.com/chaibapat/slogan-dataset/data
+This dataset collects some famous slogans of popular brands, such as Costa Coffee, KFC and Pizza hut. To visualize it, the first step is to define the features. This dataset has had company names and slogans, and I will add the categories of the company, such as food, clothing, drinking etc. The most challenging part is how to visualize textual data, since I didn't see this type of visualization before. Maybe I will design icons based on the categories of companies. If the viewers click the icon, there will be a list of company names with the slogans next to them.
+## *Coffee and code*
+link:https://app.powerbi.com/view?r=eyJrIjoiODIxZmJkMmUtZDliNy00OTM3LWFjN2ItOWMzYTU1NzQxODFjIiwidCI6Ijc3ZTkyYWY0LTQwYjEtNGVjMy1iODE3LTI3NDE4NWQ4OWQyYiIsImMiOjl9
+This dataset is a result of a survey about coding and coffee, which includes the age and gender of respondents, the type of coffee and time of drinking it. Since there are many features, I would like to use a combination of various shapes to display each respondent's result(like Kris's cat).
