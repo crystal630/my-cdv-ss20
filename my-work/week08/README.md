@@ -5,7 +5,7 @@ One possible way to deal with public records is to narrow down the number of peo
 
 Of course there are a lot of difficulties, one of which is how to define whose data can be forgotten and whose cannot. Since the crime is complex. Each case has different background, influence and each criminal has different characteristics and motivation. It is hard to set the filter for these records. Also, it is hard to clarify what kind of people or organizations can have the access to the data and how to check the files or documentation they provide.
 
-# The End of Privacy As We Know It#
+# The End of Privacy As We Know It
 The system of ClearView really freaks me out. It's horrible that someone can get my information on social media by taking a photo of me and uploading this photo to the application.
 I admit that Clearview has played a huge role in improving the efficiency of solving criminal cases by facial recognation and huge database, and it helps a lot on the society safety. However, the large database of individual's privacy itself is the potential factor of promoting crimes. Even though it is the government that has the access to the data, there's still possibility of the leakage of private data, let alone the commercial companies. Once the hackers have the access to the data, and use it to track someone and then do something bad or even criminal, it will be far more dangerous since data can be easily shared and quickly spread.
 
