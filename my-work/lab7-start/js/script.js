@@ -10,29 +10,10 @@ let viz = d3.select("#container")
     .style("height", h)
 ;
 
-
-// binding functions to the buttons on the page
-// the functions we use to do the actual work are defined in dataManager.js
-// X SCALE
-// we use a band scale
-//
-// reference: https://github.com/d3/d3-scale#band-scales
-// example: https://observablehq.com/@d3/d3-scaleband
-//
-// this is a useful scale when associating names (not values) with spots
-// on the x axis. we don't map a range of values to another range of values,
-// but a fixed set of names (the keys of our data points) to
-// a range (pixel values along the x axis)
-//
-// first we need an array with the keys only:
 let allNames = data.map(function(d){return d.key});
 // check it:
 console.log(allNames);
-// now we as d3 to give us our custom scale
-// we say "hey d3, here is a list of names (keys (the domain)), I want a function that
-// returns a number (pixel location on the x axis (the range)) for each of the names.
-// oh, and could you make sure that this functions calculates in some
-// distance (passingInner) between each of thos points (bands)?"
+
 let xScale = d3.scaleBand()
     .domain(allNames)
     .range([padding, w-padding])
@@ -40,9 +21,7 @@ let xScale = d3.scaleBand()
 ;
 // create a visual axis corresponding to the scale.
 let xAxis = d3.axisBottom(xScale)
-// this is a tricky one.... by default the axis would show the scales domain (the unique keys)
-// ...in our case we want emojis to show. This situation hardly comes up,
-// that's why I just wrote this one-liner for you:
+
 xAxis.tickFormat(d=>{return data.filter(dd=>dd.key==d)[0].name;});
 // create a group to hold all the axis elements
 let xAxisGroup = viz.append("g").classed("xAxis", true);
@@ -93,45 +72,13 @@ let elementsForPage = graphGroup.selectAll(".datapoint").data(data);
 // of what is on the page already and what needs to go there.
 // have a close look at this console.log:
 console.log("D3's assessment of whats needed on the page:", elementsForPage);
-// note the reference to enter, exit and group in the object
-// those three are all the possible selections.
-// they comprises elements that are about to enter (in this case 10),
-// elements that are on the page already and will be updated and elements
-// that don't have any associated datapoint anymore and need to exit.
-// out of this, we can pick those three subsections and decide
-// precisely what to do with the, e.g. how should new elements enter?
-// should they come from the bottom? slowly fade in? - ours to decide
-// how should updating elements change their size, color, position etc.?
-// and the exiting ones, rather than just disappearing, how about they
-// fade out?
 
-// out of this, we will now extract the sub selections,
-// the entering elements and the exiting ones:
 let enteringElements = elementsForPage.enter();
 let exitingElements = elementsForPage.exit();
 // and again, look closely:
 console.log("enteringElements", enteringElements);
 console.log("exitingElements", exitingElements);
-// note how we now only deal with a "_groups" thing,
-// in the enteringElements object, the "_groups" array holds the
-// empty placeholder elements for the elements that are about to enter
-// equally, in the exitingElements, the "_groups" array holds the elements
-// that ARE on the page, but must leave because no datapoint is their to
-// match them.
-// here is how i see it, we start with the full situation - all the elements
-// that we are dealing with. from that, we extract the entering ones (... and
-// do something with them), we also extract the exiting one (...and treat those
-// differently, too) and then? What are we left with? the UPDATING elements!
-// they are in the "_groups" array we saw in the very beginning inside
-// "elementsForPage". For now, hold the thought that we are dealing
-// with three subsections of elements: entering ones, exiting ones, and updating ones.
-// hopefully this will get clearer as we go on.
 
-
-// as you can see, there is nothing on the page yet. And the previous console.logs
-// confirm that there is no elements updating, none are leaving, we only have things enter.
-// let's deal with them right now:
-// make a group for each datapoint
 let enteringDataGroups = enteringElements.append("g").classed("datapoint", true);
 // position the group along the x axis (check the inspector tool to see
 // what we are doing):
@@ -266,7 +213,7 @@ document.getElementById("buttonA").addEventListener("click", add);
 function remove(){
   removeDatapoints(1);
   elementsForPage = graphGroup.selectAll(".datapoint").data(data, function(d){
-    return d.value;
+    return d.key;
     console.log(d.name)
   });
   update();
@@ -383,7 +330,7 @@ function removeAndAdd(){
         ;
         removeDatapoints(3);
         elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
-          return d.value;
+          return d.key;
           console.log(d.name)
         });
       update();
@@ -487,3 +434,52 @@ function shuffleData(){
 
 }
 document.getElementById("buttonE").addEventListener("click", shuffleData);
+
+function clearData(){
+ removeDatapoints(data.length);
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data, function(d){
+    return d.key
+  });
+     update();
+      elementsForPage.transition().duration(1000).attr("transform", function(d, i){//horizontal
+         return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
+       });
+       elementsForPage.select("rect")
+        .attr("fill","black")
+        .transition()
+        .delay(100)
+        .duration(2000)//vertical
+        .attr("width", function(){
+           return xScale.bandwidth();
+        })
+        .attr("y", function(d,i){
+          return -yScale(d.value);
+        })
+        .attr("height", function(d, i){
+          return yScale(d.value);
+        })
+       ;
+         let clearDatapoints=exitingElements.select("rect")
+            .attr("transform",function(d, i){
+            return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
+          });
+          clearDatapoints
+
+            .transition()
+            .delay(120)
+            .duration(2000)
+            .attr("width", function(){
+               return xScale.bandwidth();
+            })
+            .attr("y", function(d,i){
+              return 0;
+            })
+            .attr("height", function(d, i){
+              return 0;
+            })
+
+clearDatapoints.transition().delay(120).duration(120).remove()
+
+
+}
+document.getElementById("buttonF").addEventListener("click", clearData);
