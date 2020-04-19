@@ -97,6 +97,11 @@ let projection=d3.geoEqualEarth()
       })
       .attr("r",20)
       .attr("fill","green")
+      .style("opacity",0)
+      .transition()
+      .delay(1000)
+      .duration(2100)
+      .style("opacity",1.0)
     ;
     let sD=viz
       .append("circle")
@@ -108,6 +113,11 @@ let projection=d3.geoEqualEarth()
       })
       .attr("r",20)
       .attr("fill","blue")
+      .style("opacity",0)
+      .transition()
+      .delay(200)
+      .duration(1500)
+      .style("opacity",1.0)
     ;
     let hB=viz
       .append("circle")
@@ -120,6 +130,7 @@ let projection=d3.geoEqualEarth()
       })
       .attr("r",20)
       .attr("fill","lightBlue")
+
     ;
 
 
@@ -156,19 +167,43 @@ let projection=d3.geoEqualEarth()
                               .style("stop-color", color2.toString());
 
        let line=viz.append("line")
-                  .attr("x1",projection([lon,lat])[0])
-                  .attr("y1",projection([lon,lat])[1])
+                  .attr("x1",projection([lon1,lat1])[0])
+                  .attr("y1",projection([lon1,lat1])[1])
                   .attr("x2",projection([lon1,lat1])[0])
                   .attr("y2",projection([lon1,lat1])[1])
-                  .attr("stroke","url(#" + linearGradient.attr("id") + ")")
-                  .attr("stroke-width",5)
+                  .attr("stroke","black")
+                  .attr("stroke-width",15)
+
+        line.transition()
+        .delay(1200)
+        .duration(2000)
+        .attr("x1",projection([lon1,lat1])[0])
+        .attr("y1",projection([lon1,lat1])[1])
+        .attr("x2",projection([lon,lat])[0])
+        .attr("y2",projection([lon,lat])[1])
+        .attr("stroke-width",5)
+        .style("stroke", "url(#" + linearGradient.attr("id") + ")");
+
+
       let line1=viz.append("line")
+                   .attr("x1",projection([lon2,lat2])[0])
+                   .attr("y1",projection([lon2,lat2])[1])
+                   .attr("x2",projection([lon2,lat2])[0])
+                   .attr("y2",projection([lon2,lat2])[1])
+                   .attr("stroke","gray")
+                   .attr("stroke-width",10)
+                   .transition()
+                   .delay(600)
+                   .duration(200)
                    .attr("x1",projection([lon2,lat2])[0])
                    .attr("y1",projection([lon2,lat2])[1])
                    .attr("x2",projection([lon1,lat1])[0])
                    .attr("y2",projection([lon1,lat1])[1])
-                   .attr("stroke","url(#" + linearGradient1.attr("id") + ")")
                    .attr("stroke-width",5)
+                   .style("stroke", "url(#" + linearGradient1.attr("id") + ")");
+
+
+
 
 
 
