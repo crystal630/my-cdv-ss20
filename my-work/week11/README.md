@@ -1,4 +1,4 @@
-#Response to *Seeing Like a State* and Cambridge Analytica
+# Response to *Seeing Like a State* and Cambridge Analytica
 
 I used to think that the application of uses' data will only influence the advertisement or other commercial area. However, the case of Cambridge Analytica has reminded me that the leak of big data will also be used to manipulate political event, like president campaign, which actually has stronger effect on people's daily life in a different way. Actually, I'm not quite sure whether the model that can predict the personality based on users' data and their records on facebook really has a great effect on the result of the president campaign. On the one hand, the model or programme has only 30 percent correct rate of predicting users' personality. On the other hand, the vote is affect by various factors, so it is hard to say the voters changed their initial option and then vote for Trump is mainly decided by the target advertisement.
 
