@@ -19,8 +19,15 @@ margin-left:540px;
 }
 #o{
 margin-left:1240px;
-
-
+}
+#a1{
+margin-left:100px;
+}
+#a2{
+margin-left:540px;
+}
+#a3{
+margin-left:420px;
 }
 #lebanon{
   margin-left:100px;
@@ -205,3 +212,20 @@ button:hover{
 		background: rgba(161,145,0,.7);
 
 	}
+  .percent{                                                        /* NEW */
+      background: #eee;                                               /* NEW */
+      box-shadow: 0 0 5px #999999;                                    /* NEW */
+      color: #333;                                                    /* NEW */
+      display: none;                                                  /* NEW */
+      font-size: 12px;                                                /* NEW */
+      left: 130px;                                                    /* NEW */
+      padding: 10px;                                                  /* NEW */
+      position: absolute;                                             /* NEW */
+      text-align: center;                                             /* NEW */
+      top: 95px;                                                      /* NEW */
+      width: 80px;                                                    /* NEW */
+      z-index: 10;                                                    /* NEW */
+    }
+.p1 a:hover{
+  opacity:0.5;
+}
