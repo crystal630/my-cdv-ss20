@@ -1,5 +1,5 @@
 let w = 1400;
-let h = 680;
+let h = 600;
 let xpadding = 100;
 let ypadding = 50;
 
@@ -104,6 +104,11 @@ var arc = d3.arc()
     .outerRadius(0);
 
 var c1 = viz
+    .append("g")
+    .attr("class","pie")
+    .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
+
+var c2 = viz
     .append("g")
     .attr("class","pie")
     .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
@@ -256,10 +261,11 @@ function general(){
   xAxisGroup.transition().duration(1200).attr("opacity",1)
   yAxisGroup.transition().duration(1200).attr("opacity",1)
   graphGroup.transition().duration(1200).attr("opacity",1)
-  c1.transition().duration(1200).attr("opacity",0)
   xAxisGroup1.transition().duration(1200).attr("opacity",0)
   comment.transition().duration(1200).attr("opacity",1)
   t1.transition().duration(1200).attr("opacity",0)
+  c1.transition().duration(1200).attr("opacity",0)
+  c2.transition().duration(1200).attr("opacity",0)
 
 
 
@@ -270,6 +276,8 @@ function general(){
        yAxisGroup.transition().duration(1200).attr("opacity",1)
        graphGroup.transition().duration(1200).attr("opacity",1)
        xAxisGroup1.transition().duration(1200).attr("opacity",1)
+       c1.transition().duration(1200).attr("opacity",0)
+       c2.transition().duration(1200).attr("opacity",0)
 
      //
      // let xScale1 = d3.scaleLinear().domain([0,60]).range([xpadding, w-xpadding]);
@@ -298,15 +306,173 @@ function general(){
       ;
     comment.transition().duration(1200).attr("opacity",0)
      t1.transition().duration(1200).attr("opacity",0)
+     c1.transition().duration(1200).attr("opacity",0)
    }
 function chart(){
   labels=["Caffè latte","Americano","Nescafe","Turkish","Cappuccino","Espresso","?"]
-  times=["Before coding","While coding","All the time","In the morning","After coding"]
+  times=["Before coding","While coding","All the time","In the morning"]
   xAxisGroup.transition().duration(1200).attr("opacity",0)
   yAxisGroup.transition().duration(1200).attr("opacity",0)
   graphGroup.transition().duration(1200).attr("opacity",0)
-  c1.transition().duration(1200).attr("opacity",1)
-  xAxisGroup1.transition().duration(1200).attr("opacity",0)
+
+  xAxisGroup1.transition().duration(1200).attr("opacity",0);
+  // var c2 = viz
+  //   .append("g")
+  //   .attr("class","pie2")
+  //   .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
+  //   var c1 = viz
+  //     .append("g")
+  //     .attr("class","pie1")
+  //     .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
+
+
+  var arc = d3.arc()
+      .innerRadius(radius - 100)
+      .outerRadius(radius - 20);
+      texts1=c1.selectAll('.legend1').data(times)
+      ;
+      labelG1=texts1.append("g").attr("class","lab1");
+      labelG1
+        .append('rect')
+        .attr('x', 450)
+        .attr('y', -100)
+        .attr('width', 20)
+        .attr('height', 20)
+        .style('fill', function(d, i) { return color(i);} )
+        .style('stroke', "black")
+      ;
+
+      labelG1.append('text')
+        .attr('x', 490)
+        .attr('y', -80)
+        .text(function(d) { return d; })
+        .attr("fill", "#F7E6B0")
+        .attr("font-family", "Monaco")
+        .attr("font-size", "1em")
+      ;
+      var legend = c1.selectAll('.legend')
+       .data(color.domain())
+       .enter()
+       .append('g')
+       .attr('class', 'legend')
+       .attr('transform', function(d, i) {
+         var height = legendRectSize + legendSpacing;
+         var horz = -50;
+         var vert = 30-i * height;
+         return 'translate(' + horz + ',' + vert + ')';
+       });
+
+   texts=c1.selectAll('.legend').data(labels)
+   ;
+     labelG=texts.append("g").attr("class","lab");
+     labelG
+       .append('rect')
+       .attr('x', 450)
+       .attr('y', -100)
+       .attr('width', 20)
+       .attr('height', 20)
+       .style('fill', function(d, i) { return color(i);} )
+       .style('stroke', "black")
+     ;
+
+     labelG.append('text')
+       .attr('x', 490)
+       .attr('y', -80)
+       .text(function(d) { return d; })
+       .attr("fill", "#F7E6B0")
+       .attr("font-family", "Monaco")
+       .attr("font-size", "1em")
+      ;
+
+
+
+function type1(){
+      labelG1.transition().attr("opacity",0);
+      labelG.transition().attr("opacity",1);
+      c1.transition().duration(1200).attr("opacity",1);
+      c2.transition().duration(1200).attr("opacity",0);
+      d3.tsv("data.tsv", type).then(function(data){
+        var pie = d3.pie()
+          .value(function(d) { return d.Type;})
+          .sort(null);
+    var path = c1.datum(data).selectAll("path")
+      .data(pie)
+      .enter().append("path").attr("class","p1")
+      .attr("fill", function(d, i) { return color(i); })
+      .attr("d", arc)
+      .each(function(d) { this._current = d; })
+      ;
+
+      path.attr("opacity",0.3).transition().duration(750).attr("opacity",1)
+      path.on('mouseover', function(d) {                            // NEW
+          var total = d3.sum(data.map(function(d) {                // NEW
+            return d.Type;                                           // NEW
+          }));                                                        // NEW
+          var percent = Math.round(1000 * d.data.Type / total) / 10; // NEW
+          t1=viz.append("g").attr("class","t1");
+          t1.append("text")
+          .text(percent+"%")
+          .attr("x",600)
+          .attr("y",360)
+          .attr("opacity",1)
+          .attr("fill", "#F7E6B0")
+          .attr("font-family", "Monaco")
+          .attr("font-size", "5em")
+
+        });                                                           // NEW
+
+        path.on('mouseout', function() {
+          t1.transition().duration(1200).attr("opacity",0)                            // NEW
+          // tooltip.style('display', 'none');
+                                // NEW
+        });                                                           // NEW
+
+       var legend = c1.selectAll('.legend')
+        .data(color.domain())
+        .enter()
+        .append('g')
+        .attr('class', 'legend')
+        .attr('transform', function(d, i) {
+          var height = legendRectSize + legendSpacing;
+          var horz = -50;
+          var vert = 30-i * height;
+          return 'translate(' + horz + ',' + vert + ')';
+        });
+
+    texts=c1.selectAll('.legend').data(labels)
+    ;
+      labelG=texts.append("g").attr("class","lab");
+      labelG
+        .append('rect')
+        .attr('x', 450)
+        .attr('y', -100)
+        .attr('width', 20)
+        .attr('height', 20)
+        .style('fill', function(d, i) { return color(i);} )
+        .style('stroke', "black")
+      ;
+
+      labelG.append('text')
+        .attr('x', 490)
+        .attr('y', -80)
+        .text(function(d) { return d; })
+        .attr("fill", "#F7E6B0")
+        .attr("font-family", "Monaco")
+        .attr("font-size", "1em")
+      ;
+      labelG1.transition().attr("opacity",0);
+      labelG.transition().attr("opacity",1);
+
+     });
+
+}
+function time1(){
+  labelG1.transition().duration(1200).attr("opacity",1);
+  labelG.transition().duration(1200).attr("opacity",0);
+var pie = d3.pie()
+  .value(function(d) { return d.Time;})
+  .sort(null);
+
   var arc = d3.arc()
       .innerRadius(radius - 100)
       .outerRadius(radius - 20);
@@ -314,157 +480,83 @@ function chart(){
 
 
 
+d3.tsv("data.tsv", time).then(function(data){
+var path = c2.datum(data).selectAll("path")
+.data(pie)
+.enter().append("path").attr("class","p1")
+.attr("fill", function(d, i) { return color(i); })
+.attr("d", arc)
+.each(function(d) { this._current = d; })
+;
 
-  d3.tsv("data.tsv", type).then(function(data) {
-    console.log(data)
-
-    var path = c1.datum(data).selectAll("path")
-        .data(pie)
-        .enter().append("path").attr("class","p1")
-        .attr("fill", function(d, i) { return color(i); })
-        .attr("d", arc)
-        .each(function(d) { this._current = d; })
-        ;
-
-        path.attr("opacity",0.3).transition().duration(750).attr("opacity",1)
-        path.on('mouseover', function(d) {                            // NEW
-            var total = d3.sum(data.map(function(d) {                // NEW
-              return d.Type;                                           // NEW
-            }));                                                        // NEW
-            var percent = Math.round(1000 * d.data.Type / total) / 10; // NEW
-            t1=viz.append("g").attr("class","t1");
-            t1.append("text")
-            .text(percent+"%")
-            .attr("x",620)
-            .attr("y",480)
-            .attr("opacity",1)
-            .attr("fill", "#F7E6B0")
-            .attr("font-family", "Monaco")
-            .attr("font-size", "5em")
-
-          });                                                           // NEW
-
-          path.on('mouseout', function() {
-            t1.transition().duration(1200).attr("opacity",0)                            // NEW
-            // tooltip.style('display', 'none');
-                                  // NEW
-          });                                                           // NEW
-
-         var legend = c1.selectAll('.legend')
-          .data(color.domain())
-          .enter()
-          .append('g')
-          .attr('class', 'legend')
-          .attr('transform', function(d, i) {
-            var height = legendRectSize + legendSpacing;
-            var horz = -50;
-            var vert = 30-i * height;
-            return 'translate(' + horz + ',' + vert + ')';
-          });
-
-      texts=c1.selectAll('.legend').data(labels)
-      ;
-        labelG=texts.append("g").attr("class","lab")
-        labelG
-          .append('rect')
-          .attr('width', 20)
-          .attr('height', 20)
-          .style('fill', function(d, i) { return color(i);} )
-          .style('stroke', "black");
-
-        labelG.append('text')
-          .attr('x', legendRectSize + legendSpacing)
-          .attr('y', legendRectSize - legendSpacing)
-          .text(function(d) { return d; })
-          .attr("fill", "#F7E6B0")
-          .attr("font-family", "Monaco")
-          .attr("font-size", "1em")
-
-                                                   // NEW
+path.attr("opacity",0.3).transition().duration(750).attr("opacity",1)
+path.on('mouseover', function(d) {                            // NEW
+    var total = d3.sum(data.map(function(d) {                // NEW
+      return d.Time;                                           // NEW
+    }));                                                        // NEW
+    var percent = Math.round(1000 * d.data.Time / total) / 10; // NEW
+    t1=viz.append("g").attr("class","t1");
+    t1.append("text")
+    .text(percent+"%")
+    .attr("x",580)
+    .attr("y",360)
+    .attr("opacity",1)
+    .attr("fill", "#F7E6B0")
+    .attr("font-family", "Monaco")
+    .attr("font-size", "5em")
+  ;
 
 
-        // store the initial angles
+  });                                                           // NEW
 
-    d3.selectAll("input")
-        .on("change", change);
+  path.on('mouseout', function() {
+    t1.transition().duration(1200).attr("opacity",0)                            // NEW
+    // tooltip.style('display', 'none');
+                          // NEW
+  });                                                           // NEW
 
-    // var timeout = setTimeout(function() {
-    //   d3.select("input[value=\"Time\"]").property("checked", true).each(change);
-    // }, 2500);
-
-function change() {
-
-     labelG.transition().attr("opacity",0);
-      var value = this.value;
-      path.on('mouseover', function(d) {                            // NEW
-        total = d3.sum(data.map(function(d) {                // NEW
-            return d.Time;                                           // NEW
-          }));                                                        // NEW
-          var percent = Math.round(1000 * d.data.Time / total) / 10;// NEW
-          t1=viz.append("g").attr("class","t1");
-                      t1.append("text")
-                      .text(percent+"%")
-                      .attr("x",620)
-                      .attr("y",480)
-                      .attr("opacity",1)
-                      .attr("fill", "#F7E6B0")
-                      .attr("font-family", "Monaco")
-                      .attr("font-size", "5em")
-                    ;
-
-                       // NEW
-       });                                                           // NEW
-
-       path.on('mouseout', function() {                              // NEW
-            t1.transition().duration(1200).attr("opacity",0);
-
-                                // NEW
-       });
-           text=c1.selectAll('.legend').data(times)
-        time=text.append("g").attr("class","time")
-           time.append('rect')
-           .attr('width', 20)
-           .attr('height', 20)
-           .style('fill', function(d, i) { return color(i);})
-           .style('stroke', "black");
-
-         time.append('text')
-           .attr('x', legendRectSize + legendSpacing)
-           .attr('y', legendRectSize - legendSpacing)
-           .text(function(d) { return d; })
-           .attr("fill", "#F7E6B0")
-           .attr("font-family", "Monaco")
-           .attr("font-size", "1em")
-
-      // clearTimeout(timeout);
-      pie.value(function(d) { return d[value]; }); // change the value function
-      path = path.data(pie); // compute the new angles
-      path.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
-
-
-    }
-
+ var legend1 = c2.selectAll('.legend1')
+  .data(color.domain())
+  .enter()
+  .append('g')
+  .attr('class', 'legend1')
+  .attr('transform', function(d, i) {
+    var height = legendRectSize + legendSpacing;
+    var horz = -50;
+    var vert = 30-i * height;
+    return 'translate(' + horz + ',' + vert + ')';
   });
 
+texts1=c2.selectAll('.legend1').data(times)
+;
+labelG1=texts1.append("g").attr("class","lab1");
+labelG1
+  .append('rect')
+  .attr('x', 450)
+  .attr('y', -100)
+  .attr('width', 20)
+  .attr('height', 20)
+  .style('fill', function(d, i) { return color(i);} )
+  .style('stroke', "black")
+;
 
-  function type(d) {
-    d.Type = +d.Type;
-    d.Time = +d.Time;
-    return d;
-  }
+labelG1.append('text')
+  .attr('x', 490)
+  .attr('y', -80)
+  .text(function(d) { return d; })
+  .attr("fill", "#F7E6B0")
+  .attr("font-family", "Monaco")
+  .attr("font-size", "1em")
+;
+labelG1.transition().attr("opacity",1);
+labelG.transition().attr("opacity",0);
+c1.transition().duration(1200).attr("opacity",0);
+c2.transition().duration(1200).attr("opacity",1);
+})
+}
 
-  // Store the displayed angles in _current.
-  // Then, interpolate from _current to the new angles.
-  // During the transition, _current is updated in-place by d3.interpolate.
-  function arcTween(a) {
-    var i = d3.interpolate(this._current, a);
-    this._current = i(0);
-    return function(t) {
-      return arc(i(t));
-    };
-  }
-
-
+document.getElementById("type").addEventListener("click", type1);
+document.getElementById("time").addEventListener("click", time1);
 }
 document.getElementById("pros").addEventListener("click", general);
 document.getElementById("cons").addEventListener("click", age);
