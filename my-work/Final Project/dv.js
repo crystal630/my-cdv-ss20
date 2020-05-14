@@ -18,7 +18,7 @@ function r(datapoint){
 function getGroupLocation(d,i){
 
   let x = d.CodingHours*120-(Math.floor(Math.random() * 130))
-  let y = 630-(d.CoffeeCupsPerDay*72+Math.floor(Math.random() * 62))
+  let y = 630-(d.CoffeeCupsPerDay*72+Math.floor(Math.random() * 32))
   return "translate(" + x + "," + y +")"
 }
 function getIncomingLocation(d,i){
@@ -133,8 +133,8 @@ var c2 = viz
 
              // .attr("x",share)
              // .attr("y",yc)
-             .attr("width",50)
-             .attr("height",50)
+             .attr("width",80)
+             .attr("height",80)
              .attr("transform",getIncomingLocation)
            ;
 
@@ -252,14 +252,14 @@ function general(){
                         .duration(1200)
                         .attr("x",function(d){ if(d.CodingHours==1){return 100;}})
                         .attr("transform",getGroupLocation)
-                        .attr("width",r)
-                        .attr("height",r)
+                        .attr("width",30)
+                        .attr("height",30)
                       ;
 
 
   graphGroup.transition().duration(1200).attr("opacity",1)
-  xAxisGroup.transition().duration(1200).attr("opacity",1)
-  yAxisGroup.transition().duration(1200).attr("opacity",1)
+  xAxisGroup.transition().duration(1200).attr("opacity",1).attr("color","white")
+  yAxisGroup.transition().duration(1200).attr("opacity",1).attr("color","white")
   graphGroup.transition().duration(1200).attr("opacity",1)
   xAxisGroup1.transition().duration(1200).attr("opacity",0)
   comment.transition().duration(1200).attr("opacity",1)
@@ -275,7 +275,7 @@ function general(){
        xAxisGroup.transition().duration(1200).attr("opacity",0)
        yAxisGroup.transition().duration(1200).attr("opacity",1)
        graphGroup.transition().duration(1200).attr("opacity",1)
-       xAxisGroup1.transition().duration(1200).attr("opacity",1)
+       xAxisGroup1.transition().duration(1200).attr("opacity",1).attr("color","white")
        c1.transition().duration(1200).attr("opacity",0)
        c2.transition().duration(1200).attr("opacity",0)
 
@@ -302,9 +302,11 @@ function general(){
        .delay(300)
        .duration(1200)
        .attr("x",function(d){ if(d.AgeRange==0){return 0;}})
+       .attr("width",30)
+       .attr("height",30)
        .attr("transform",changingLocation)
       ;
-    comment.transition().duration(1200).attr("opacity",0)
+    //comment.transition().duration(1200).attr("opacity",0)
      t1.transition().duration(1200).attr("opacity",0)
      c1.transition().duration(1200).attr("opacity",0)
    }

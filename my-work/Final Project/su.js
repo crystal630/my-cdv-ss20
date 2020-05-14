@@ -11,12 +11,19 @@ viz.append("svg:image")
     .attr("width", 1200)
     .attr("height", 300)
     .attr("opacity",1);
+let con=viz.append("svg:image");
+let neg=viz.append("g")
+    .attr("class","negGroup");
+let beg=viz.append("g")
+        .attr("class","beGroup")
 function benefit(){
 
   //neg.remove()
-  beg=viz.append("g")
-      .attr("class","beGroup")
 
+  beg
+    .transition()
+    .duration(120)
+    .attr("opacity",1);
   beg.append("svg:image")
     .attr("xlink:href","imgs/be5.gif")
     .attr("x", 80)
@@ -24,6 +31,7 @@ function benefit(){
     .attr("width", 150)
     .attr("height", 150)
     .attr("opacity",1);
+
   beg.append("text")
     .text("COFFEE makes u more FOCUSED and SMARTER")
     .attr("x", 20)
@@ -77,15 +85,22 @@ function benefit(){
    neg
    .transition()
    .duration(120)
-   .attr("opacity",0.1)
+   .attr("opacity",0.1);
+   con
+   .transition()
+   .duration(120)
+   .attr("opacity",0)
+   ;
 
 
 }
 function se(){
 
 
-  neg=viz.append("g")
-      .attr("class","negGroup")
+  neg
+    .transition()
+    .duration(120)
+    .attr("opacity",1);
   m=neg
     .append("svg:image")
     .attr("xlink:href","imgs/cp1.gif")
@@ -169,10 +184,15 @@ neg.append("text")
         beg
           .transition()
           .duration(120)
-          .attr("opacity",0.1)
+          .attr("opacity",0.1);
+          con
+          .transition()
+          .duration(120)
+          .attr("opacity",0)
+          ;
 }
 function conclusion(){
-  let con=viz.append("svg:image")
+       con
         .attr("xlink:href","imgs/ssuu.png")
         .attr("x", 450)
         .attr("y", 0)
